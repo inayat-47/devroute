@@ -1,0 +1,12 @@
+# DevRoute Backend — Python Dependencies
+# Install with: pip install -r requirements.txt
+#
+# Equivalent to package.json dependencies, but Python doesn't have
+# a lock file by default (you can use pip-tools or poetry for that).
+
+fastapi
+uvicorn[standard]
+httpx
+pydantic
+python-dotenv
+groq
