@@ -80,6 +80,15 @@ async def analyze(body: AnalyzeRequest) -> AnalyzeResponse:
                         "minutes, or paste your resume text instead."
                     ),
                 )
+            if status == 401:
+                raise HTTPException(
+                    status_code=502,
+                    detail=(
+                        "GitHub API authentication error. The configured "
+                        "GITHUB_TOKEN may be invalid. The request will "
+                        "proceed without authentication."
+                    ),
+                )
             # Re-raise unexpected GitHub errors
             raise HTTPException(
                 status_code=502,

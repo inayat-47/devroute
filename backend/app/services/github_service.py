@@ -299,8 +299,8 @@ def _build_headers() -> dict[str, str]:
         "Accept": "application/vnd.github.mercy-preview+json",  # topics preview
         "X-GitHub-Api-Version": "2022-11-28",
     }
-    token = os.getenv("GITHUB_TOKEN", "").strip()
-    if token and not token.startswith("ghp_oU1i"):
+    token = os.getenv("GITHUB_TOKEN", "").split("#")[0].strip()
+    if token and token.startswith(("ghp_", "gho_", "github_pat_")):
         headers["Authorization"] = f"Bearer {token}"
     return headers
 
